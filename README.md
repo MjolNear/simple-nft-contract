@@ -35,6 +35,7 @@ It seems a bit complex on the first look but MjolNear team will provide a comple
        "metadata": { 
            "spec": "nft-1.0.0", 
            "name": "My First NFT collection!", 
+           "symbol": "LUVNFT",
            "icon": "https://cdn-icons-png.flaticon.com/512/1818/1818401.png", 
            "base_uri": "https://ipfs.io/ipfs", 
            "reference": "https://linktojson.com/myjson.json", 
