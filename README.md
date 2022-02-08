@@ -66,28 +66,34 @@ near deploy --accountId *account id of future contract* --wasmFile out/main.wasm
   }
 ```
 
-1. You contract is ready! Now you can mint any token on it using this command:
-   * `near call *your contract name* nft`_`mint '{"tokenid": "*unique id of this token*", "token_`_`owner`_`id": "*owner of this token. May be you want to mint it directly to your friend!*", "token_`_`metadata": *some token metadata*}' --depost 0.1 --gas 300000000000000 --accountId *owner_id of the contract*`
-   * Token metadata must be json with such format:
-     *
+* You contract is ready! Now you can mint any token on it using this command:
 
-         ```
-         { 
-           "title": "My lovely Punk.", 
-           "description": "I really love my punk.", 
-           "media": "https://ipfs.io/ipfs/bafybeicmy2c2hpfb5so5maacqnfuxm54ohom5iaeaeeuhvrxg6j32hn6re/avatars-rfwy5mSeUytFz5Gx-8s06ZQ-t240x240.jpg", 
-           "media_hash": "bafybeicmy2c2hpfb5so5maacqnfuxm54ohom5iaeaeeuhvrxg6j32hn6re", 
-           "copies": 1, 
-           "issued_at": ..., // ISO 8601 datetime when token was issued or minted
-           "expires_at": ..., // ISO 8601 datetime when token expires
-           "starts_at": ..., // ISO 8601 datetime when token starts being valid
-           "updated_at": ..., // ISO 8601 datetime when token was last updated
-           "extra": {"traits": {"eyes": "blue"}}, // anything extra the NFT wants to store on-chain (like traits and etc.). Can be stringified JSON.
-           "reference": "https://myjsonwithtraits.com/punk.json", // URL to an off-chain JSON file with more info.
-           "reference_hash": "cHVuayBmb3IgbWpvbG5lYXIhIG1vbSBpIGxvdmUgeW91", // Base64-encoded sha256 hash of JSON from reference field. Required if `reference` is included.
-          }  
-         ```
-2. You are all set! Now you have you NFT on your contract! Now you can go to MjolNear and place it one the market.
+```shell
+near call *your contract name* nftmint '{"tokenid": "*unique id of this token*", "token_ownerid": "*owner of this token. May be you want to mint it directly to your friend!*", "token_metadata": *some token metadata*}' --depost 0.1 --gas 300000000000000 --accountId *owner_id of the contract*
+```
+
+```json
+{ 
+  "title": "My lovely Punk.", 
+  "description": "I really love my punk.", 
+  "media": "https://ipfs.io/ipfs/bafybeicmy2c2hpfb5so5maacqnfuxm54ohom5iaeaeeuhvrxg6j32hn6re/avatars-rfwy5mSeUytFz5Gx-8s06ZQ-t240x240.jpg", 
+  "media_hash": "bafybeicmy2c2hpfb5so5maacqnfuxm54ohom5iaeaeeuhvrxg6j32hn6re", 
+  "copies": 1, 
+  "issued_at": ..., // ISO 8601 datetime when token was issued or minted
+  "expires_at": ..., // ISO 8601 datetime when token expires
+  "starts_at": ..., // ISO 8601 datetime when token starts being valid
+  "updated_at": ..., // ISO 8601 datetime when token was last updated
+  "extra": {"traits": {"eyes": "blue"}}, // anything extra the NFT wants to store on-chain (like traits and etc.). Can be stringified JSON.
+  "reference": "https://myjsonwithtraits.com/punk.json", // URL to an off-chain JSON file with more info.
+  "reference_hash": "cHVuayBmb3IgbWpvbG5lYXIhIG1vbSBpIGxvdmUgeW91", // Base64-encoded sha256 hash of JSON from reference field. Required if `reference` is included.
+ }  oJ
+```
+
+You are all set! Your NFT is on the contract! You can go to MjolNear and place it on the market.
+
+Enjoy!
+
+_**MjolNear team**_
 
 
 
