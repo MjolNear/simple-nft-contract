@@ -44,7 +44,7 @@ It seems a bit complex on the first look but MjolNear team will provide a comple
        }
      ```
 5. You contract is ready! Now you can mint any token on it using this command:
-   * `near call *your contract name* nft`_`mint '{"tokenid": "*unique id of this token*", "token_`_`owner`_`id": "*owner of this token. May be you want to mint it directly to your friend!*", "token_`_`metadata": *some token metadata*}' --depost 0.1 --gas 300000000000000`
+   * `near call *your contract name* nft`_`mint '{"tokenid": "*unique id of this token*", "token_`_`owner`_`id": "*owner of this token. May be you want to mint it directly to your friend!*", "token_`_`metadata": *some token metadata*}' --depost 0.1 --gas 300000000000000 --accountId *owner_id of the contract*`
    * Token metadata must be json with such format:
      *
 
