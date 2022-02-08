@@ -6,7 +6,6 @@ use near_sdk::{
     env, near_bindgen, AccountId, BorshStorageKey,
     PanicOnDefault, Promise, PromiseOrValue
 };
-use serde::{Serialize, Deserialize};
 
 #[derive(BorshSerialize, BorshStorageKey)]
 enum StorageKey {
