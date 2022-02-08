@@ -23,27 +23,50 @@ It seems a bit complex on the first look but MjolNear team will provide a comple
 
 3\. Now go to directory with cloned project and run in terminal: `./build.sh` . It will build the contract.
 
-4\. Now we have to deploy the contract, initialize it and mint the first NFT. Write these commands in terminal:
+4\. Now we have to deploy the contract, initialize it and mint the first NFT. Write these commands in terminal step by step:
 
-1. `export NEAR_ENV=mainnet`
-2. `near login`- use it to login via your NEAR account
-3. `near create-account *your NFT contract name with suffix as masterAccount* --masterAccount *you account name* --initialBalance 6.0`. Alternatively you can deploy this contract to any other account but be sure that there is enough NEAR for initial storage coverage,
-4. `near deploy --accountId example-contract.testnet --wasmFile out/main.wasm --initFunction new --initArgs '{"owner_id": "*you account name*", "`contract\_metadata`": {"spec": "nft-1.0.0", "name": "*name of your NFT contract*", "symbol": "*symbol of your contract, usually a small word*", "icon": "*URL for icon of your contract*", "base_uri": "*base URI for decentralazed storage of contract additional metadata (for example` [`NFT Storage`](https://nft.storage)`)*", "reference": "*URL to JSON with more info (traits and etc.)*", "reference_hash": "*hash of reference from previous field. It will be used to build link using base_uri*"}}'`- this command will initialize your contract. You must supply the owner\_id in arguments (owner is the only person who can mint NFTs on the contract, usually it is just your account) and metadata (some info about your NFT contract). NOTE: it may require about 6.0 NEAR for initial storage of the contract. Funds will be drawn from account passed in `--masterAccount`. &#x20;
-   * &#x20;Arguments example:    &#x20;
-   * ```
-     { "owner_id": "myaccount.near", 
-       "contract_metadata": { 
-           "spec": "nft-1.0.0", 
-           "name": "My First NFT collection!", 
-           "symbol": "LUVNFT",
-           "icon": "https://cdn-icons-png.flaticon.com/512/1818/1818401.png", 
-           "base_uri": "https://ipfs.io/ipfs", 
-           "reference": "https://linktojson.com/myjson.json", 
-           "reference_hash": "aSBsb3ZlIG1qb2xuZWFyIHZlcnkgdmVyeSB2ZXJ5IG11Y2ghISE=" 
-         }
-       }
-     ```
-5. You contract is ready! Now you can mint any token on it using this command:
+* Set NEAR enviroment to mainnet
+
+```shell
+export NEAR_ENV=mainnet
+```
+
+* Login using yout NEAR account
+
+```shell
+near login // use it to login via your NEAR accountshe
+```
+
+* Create account that will be used for contract deployment (skip this step if you already have account for deployment)
+
+```shell
+near create-account *your NFT contract name with suffix as masterAccount* --masterAccount *you account name* --initialBalance 6.0.
+```
+
+* Next command will initialize your contract. You must supply the owner\_id in arguments (owner is the only person who can mint NFTs on the contract, usually it is just your account) and metadata (some info about your NFT contract). \
+  \
+  NOTE: it may require about 6.0 NEAR for initial storage of the contract.
+
+```shell
+near deploy --accountId *account id of future contract* --wasmFile out/main.wasm --initFunction new --initArgs '{"owner_id": "*you account name*", "contract_metadata": {"spec": "nft-1.0.0", "name": "*name of your NFT contract*", "symbol": "*symbol of your contract, usually a small word*", "icon": "*URL for icon of your contract*", "base_uri": "*base URI for decentralazed storage of contract additional metadata (for example NFT Storage)*", "reference": "*URL to JSON with more info (traits and etc.)*", "reference_hash": "*hash of reference from previous field. It will be used to build link using base_uri*"}}'
+```
+
+```json
+// example of arguments
+{ "owner_id": "myaccount.near", 
+  "contract_metadata": { 
+      "spec": "nft-1.0.0", 
+      "name": "My First NFT collection!", 
+      "symbol": "LUVNFT",
+      "icon": "https://cdn-icons-png.flaticon.com/512/1818/1818401.png", 
+      "base_uri": "https://ipfs.io/ipfs", 
+      "reference": "https://linktojson.com/myjson.json", 
+      "reference_hash": "aSBsb3ZlIG1qb2xuZWFyIHZlcnkgdmVyeSB2ZXJ5IG11Y2ghISE=" 
+    }
+  }
+```
+
+1. You contract is ready! Now you can mint any token on it using this command:
    * `near call *your contract name* nft`_`mint '{"tokenid": "*unique id of this token*", "token_`_`owner`_`id": "*owner of this token. May be you want to mint it directly to your friend!*", "token_`_`metadata": *some token metadata*}' --depost 0.1 --gas 300000000000000 --accountId *owner_id of the contract*`
    * Token metadata must be json with such format:
      *
@@ -64,7 +87,7 @@ It seems a bit complex on the first look but MjolNear team will provide a comple
            "reference_hash": "cHVuayBmb3IgbWpvbG5lYXIhIG1vbSBpIGxvdmUgeW91", // Base64-encoded sha256 hash of JSON from reference field. Required if `reference` is included.
           }  
          ```
-6. You are all set! Now you have you NFT on your contract! Now you can go to MjolNear and place it one the market.
+2. You are all set! Now you have you NFT on your contract! Now you can go to MjolNear and place it one the market.
 
 
 
