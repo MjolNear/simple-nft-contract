@@ -86,7 +86,7 @@ near call *your contract name* nftmint '{"tokenid": "*unique id of this token*",
   "extra": {"traits": {"eyes": "blue"}}, // anything extra the NFT wants to store on-chain (like traits and etc.). Can be stringified JSON.
   "reference": "https://myjsonwithtraits.com/punk.json", // URL to an off-chain JSON file with more info.
   "reference_hash": "cHVuayBmb3IgbWpvbG5lYXIhIG1vbSBpIGxvdmUgeW91", // Base64-encoded sha256 hash of JSON from reference field. Required if `reference` is included.
- }  oJ
+ }
 ```
 
 You are all set! Your NFT is on the contract! You can go to MjolNear and place it on the market.
