@@ -72,7 +72,7 @@ near deploy --accountId *account id of future contract* --wasmFile out/main.wasm
 near call *your contract name* nftmint '{"tokenid": "*unique id of this token*", "token_ownerid": "*owner of this token. May be you want to mint it directly to your friend!*", "token_metadata": *some token metadata*}' --depost 0.1 --gas 300000000000000 --accountId *owner_id of the contract*
 ```
 
-```json
+```
 { 
   "title": "My lovely Punk.", 
   "description": "I really love my punk.", 
