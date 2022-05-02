@@ -51,8 +51,8 @@ near create-account *your NFT contract name with suffix as masterAccount* --mast
 near deploy --accountId *account id of future contract* --wasmFile out/main.wasm --initFunction new --initArgs '{"owner_id": "*you account name*", "contract_metadata": {"spec": "nft-1.0.0", "name": "*name of your NFT contract*", "symbol": "*symbol of your contract, usually a small word*", "icon": "*URL for icon of your contract*", "base_uri": "*base URI for decentralazed storage of contract additional metadata (for example NFT Storage)*", "reference": "*URL to JSON with more info (traits and etc.)*", "reference_hash": "*hash of reference from previous field. It will be used to build link using base_uri*"}}'
 ```
 
+### Example of arguments:
 ```json
-// example of arguments
 { "owner_id": "myaccount.near", 
   "contract_metadata": { 
       "spec": "nft-1.0.0", 
